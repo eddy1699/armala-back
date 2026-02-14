@@ -12,7 +12,7 @@ Armala es una solución web y móvil para organizar pichangas y recaudar dinero 
 2. Problema a Resolver
 En grupos de pichanga, la recaudación suele ser manual (Yape/Plin directo al organizador), hay falta de transparencia (¿cuánto falta?, ¿quién pagó?, ¿estoy confirmado?), el organizador invierte tiempo persiguiendo pagos y confirmaciones, y los participantes no tienen un estado claro (confirmado/pendiente/fuera). Armala busca reducir fricción y ordenar la recaudación con un flujo simple y trazable.
 
-3. Público Objetivo (MVP1)
+3. Público Objetivo (MVP1)-
 • Organizadores ocasionales de pichangas (capitán del grupo, quien reserva la cancha).
 • Participantes frecuentes que se anotan, pagan y necesitan claridad de estado.
 • Usuarios nuevos que llegan por link compartido (WhatsApp principalmente).
