@@ -1,0 +1,178 @@
+ARMALA — Documento Funcional (MVP1)
+
+Ficha del documento
+Versión: 1.0
+Fecha: 2026-02-08
+Autor: Erick J. Palomino (consolidación)
+Objetivo: Definir alcance, flujos y reglas de negocio del primer MVP de Armala, incluyendo el sistema de incentivos (bono) basado en el porcentaje de usuarios nuevos.
+
+1. Resumen Ejecutivo
+Armala es una solución web y móvil para organizar pichangas y recaudar dinero de los participantes de manera ordenada mediante la creación de una sala/evento. El organizador define el monto total, la cuenta destino (donde llegará el dinero), ubicación, hora y el sistema genera un link para compartir. Los participantes pueden pagar por el link (sin necesidad de app) o anotarse y pagar después. Se incluye un sistema de incentivos que otorga un bono al organizador cuando la sala se completa al 100% y existe un % de usuarios nuevos registrado y validado en Armala.
+
+2. Problema a Resolver
+En grupos de pichanga, la recaudación suele ser manual (Yape/Plin directo al organizador), hay falta de transparencia (¿cuánto falta?, ¿quién pagó?, ¿estoy confirmado?), el organizador invierte tiempo persiguiendo pagos y confirmaciones, y los participantes no tienen un estado claro (confirmado/pendiente/fuera). Armala busca reducir fricción y ordenar la recaudación con un flujo simple y trazable.
+
+3. Público Objetivo (MVP1)
+• Organizadores ocasionales de pichangas (capitán del grupo, quien reserva la cancha).
+• Participantes frecuentes que se anotan, pagan y necesitan claridad de estado.
+• Usuarios nuevos que llegan por link compartido (WhatsApp principalmente).
+
+4. Propuesta de Valor (MVP1)
+Para participantes:
+• Cupo/estado claro: pagado = confirmado.
+• Transparencia: monto total vs recaudado, cupos disponibles, tiempo límite.
+• Evita malentendidos: confirmación/ticket digital del pago.
+• Incentivo real: reducción del costo total mediante bono por usuarios nuevos.
+
+Para organizador:
+• Menos persecución, más control.
+• Panel simple con lista de pagadores y pendientes.
+• Recaudación centralizada + depósito a su cuenta (según modelo de pago).
+
+5. Alcance del MVP1 (Scope)
+5.1 Funcionalidades Core
+
+A. Creación de Sala (Organizador)
+• Crear sala/evento con: nombre/título; monto total objetivo; cupos; costo por persona (auto-calculado); fecha y hora; ubicación; cuenta destino del organizador; fecha límite de pago (opcional); permitir pagar después (sí/no).
+• Generación de link único para compartir.
+
+B. Acceso por Link (Participante)
+• Ver detalles del evento sin cuenta.
+• Elegir: (1) Pagar ahora (reservar cupo) o (2) Anotarme y pagar después (reserva condicional según reglas).
+
+C. Registro rápido y validación
+• Si paga sin cuenta, se ofrece crear cuenta rápida (teléfono o email + OTP).
+• La cuenta queda validada por OTP y/o validación mínima antifraude.
+
+D. Recaudación y estados
+• Estados: Confirmado (pagó), Pendiente (anotado sin pago), Expirado (no pagó antes del deadline/cupo liberado).
+• Progreso: % recaudado; cupos confirmados; cupos pendientes.
+
+E. Notificaciones (básicas)
+• Recordatorio a pendientes (por defecto cada cierto tiempo y antes del cierre).
+• Aviso cuando: se completa la sala; quedan pocos cupos; se activa el bono.
+
+6. Fuera de alcance (MVP1)
+• Matchmaking avanzado / pichangas públicas por cercanía (MVP2+).
+• Reputación compleja de jugador.
+• Integraciones con canchas (MVP2+).
+• Reembolsos automáticos complejos (puede ser manual al inicio).
+• Suscripciones/premium.
+
+7. Sistema de Incentivos (Bono por % de Usuarios Nuevos)
+7.1 Objetivo
+Incentivar que los participantes paguen por Armala y que el organizador comparta el link para atraer usuarios nuevos, evitando el abuso de ‘turnarse el organizador’.
+
+7.2 Definiciones
+• Usuario Nuevo (NEW_USER): usuario que se registra por primera vez en Armala durante la ventana de la sala (ver 7.6).
+• Usuario Existente (EXISTING_USER): cuenta creada antes de la sala.
+• Usuario Validado (VERIFIED): completó verificación mínima (OTP y/o validación antifraude).
+• Sala Completada (COMPLETED): la suma de pagos confirmados alcanza el monto objetivo antes del deadline o cierre manual.
+
+7.3 Elegibilidad del bono
+La sala es elegible si y solo si: (a) recaudado_total ≥ monto_objetivo; (b) cupos pagados al 100%; (c) participantes verificados (recomendado: 100% verificados o mínimo 80% en MVP).
+
+7.4 Cálculo del % de nuevos
+%Nuevos = (UsuariosNuevosVerificados / TotalParticipantesVerificados) × 100
+
+7.5 Curva de bono (propuesta MVP1)
+• %Nuevos ≥ 80% → 30% bono
+• 60% ≤ %Nuevos < 80% → 18% bono
+• 40% ≤ %Nuevos < 60% → 12% bono
+• 20% ≤ %Nuevos < 40% → 6% bono
+• %Nuevos < 20% → 0% bono
+(Valores ajustables; el principio es ‘más nuevos ⇒ más bono’.)
+
+7.6 Ventana para considerar ‘nuevo’
+Para evitar abuso, se considera ‘nuevo’ a quien crea su cuenta desde que se genera el link de la sala hasta el cierre (o máximo 48h desde creación de la sala).
+
+7.7 Anti-abuso (mínimo viable)
+• OTP por teléfono/email; 1 usuario = 1 número/correo.
+• Rate limit por IP/dispositivo.
+• No contar como ‘nuevo’ si el número ya existía o si no está verificado.
+• Recalcular o bloquear bono si hay señales de fraude (cuentas múltiples desde un mismo dispositivo).
+
+7.8 Mensajería (UX)
+Mostrar una barra de progreso: ‘Bono desbloqueable: hasta 30%’, ‘Actualmente: 12% (40% jugadores nuevos)’, ‘Invita X jugadores nuevos para subir de tramo’.
+
+8. Flujos de Usuario (User Journeys)
+8.1 Organizador
+1) Registrarse / iniciar sesión.
+2) Crear sala (monto, cupos, hora, ubicación, cuenta).
+3) Obtener link y compartir.
+4) Ver panel: confirmados/pendientes, recaudado.
+5) Sala completada: calcular bono y ejecutar depósito final.
+
+8.2 Participante — paga y se valida
+1) Abre link.
+2) Ve detalles del evento.
+3) Pagar ahora.
+4) Pago exitoso → Confirmado.
+5) Crear cuenta rápida + OTP.
+6) Ver ticket y registro en historial.
+
+8.3 Participante — se anota y paga después
+1) Abre link.
+2) Anotarme y pagar después.
+3) Estado Pendiente.
+4) Recibe recordatorios.
+5) Paga antes del cierre → Confirmado.
+
+9. Reglas de Estados (MVP1)
+• Confirmado: pagó y está verificado (o en proceso).
+• Pendiente: no pagó; puede perder cupo si se llega al límite o al deadline.
+• Expirado: no pagó a tiempo; se libera el cupo.
+• Cerrado: evento finalizado; se ejecuta depósito y bono si aplica.
+
+10. Requisitos No Funcionales (MVP1)
+Seguridad y privacidad mínima:
+• No mostrar públicamente datos sensibles del organizador; enmascarar datos si se muestran.
+• Logs de transacciones con IDs.
+
+Disponibilidad:
+• Link accesible sin app.
+• Flujo ‘pagar y luego crear cuenta’ con reintentos y reconexión.
+
+Auditoría:
+• Cada pago genera ID de transacción, timestamp, estado (pendiente/confirmado/fallido), y usuario asociado.
+
+11. Métricas de Éxito (KPIs MVP1)
+• Conversion rate del link: visitas → pagos.
+• % de pagos vs ‘pago después’.
+• Tiempo promedio para completar sala.
+• % de salas que llegan a 100%.
+• % de usuarios nuevos por sala.
+• CAC estimado: bono total pagado / nuevos usuarios reales.
+• Retención: usuarios que participan/pagan en una segunda sala.
+
+12. Backlog / Roadmap sugerido
+MVP1:
+• Crear sala + link.
+• Vista pública por link.
+• Pago.
+• Registro rápido + verificación.
+• Panel de progreso y estados.
+• Cálculo y aplicación del bono por % de nuevos.
+• Recordatorios simples.
+
+MVP1.5:
+• Compartir a WhatsApp con mensaje prearmado.
+• Deadline configurable.
+• Reglas de liberación de cupo (si no paga).
+• Mejoras antifraude.
+
+MVP2:
+• Canchas aliadas para que el bono no sea 100% subsidiado por Armala.
+• Pichangas públicas.
+• Reputación/perfil jugador.
+• Reembolsos y cancelaciones automatizadas.
+
+13. Casos Límite (Edge Cases)
+1) Sala llena pero faltan verificaciones: pagar bono solo considerando verificados o esperar verificación completa.
+2) Alguien paga y se retira: manejo manual en MVP1; refund automatizado en MVP2.
+3) Pagos fallidos/duplicados: registrar y conciliar.
+4) Fraude (múltiples cuentas): excluir de ‘nuevos’, recalcular o bloquear bono.
+
+14. Conclusión
+MVP1 entrega un flujo simple: link compartible, pago ordenado con confirmación, transparencia de recaudación, recordatorios y un incentivo fuerte pero anti-abuso, donde el bono crece con usuarios nuevos reales y validados.
+

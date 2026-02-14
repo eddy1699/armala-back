@@ -1,0 +1,85 @@
+2026-02-09 22:48:17.661 -05:00 [INF] Iniciando Armala API...
+2026-02-09 22:48:17.968 -05:00 [INF] Now listening on: http://localhost:5069
+2026-02-09 22:48:17.975 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-09 22:48:17.978 -05:00 [INF] Hosting environment: Development
+2026-02-09 22:48:17.981 -05:00 [INF] Content root path: C:\Users\Moises\OneDrive\OneDrive - Universidad Peruana de Ciencias\Desktop\Armala\Backend\Armala
+2026-02-09 22:48:24.617 -05:00 [WRN] Failed to determine the https port for redirect.
+2026-02-09 22:48:24.735 -05:00 [INF] HTTP GET / responded 200 in 76.9611 ms
+2026-02-09 22:48:24.910 -05:00 [INF] HTTP GET /favicon.ico responded 404 in 0.1975 ms
+2026-02-09 22:49:57.815 -05:00 [INF] Executed DbCommand (216ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='60']
+SELECT TOP(1) [u].[id], [u].[created_at], [u].[dni], [u].[email], [u].[full_name], [u].[is_verifired], [u].[password_hash], [u].[phone_number], [u].[profile_picture_url], [u].[status], [u].[updated_at]
+FROM [users] AS [u]
+WHERE [u].[email] = @__email_0
+2026-02-09 22:49:59.004 -05:00 [INF] Executed DbCommand (200ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='60']
+SELECT [r].[id], [r].[created_at], [r].[expires_at], [r].[ip_address], [r].[is_revoked], [r].[token], [r].[updated_at], [r].[user_agent], [r].[user_id]
+FROM [refresh_tokens] AS [r]
+WHERE [r].[user_id] = @__userId_0 AND [r].[is_revoked] = CAST(0 AS bit)
+2026-02-09 22:49:59.464 -05:00 [INF] Executed DbCommand (142ms) [Parameters=[@p2='?' (DbType = Guid), @p0='?' (DbType = Boolean), @p1='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='60']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [refresh_tokens] SET [is_revoked] = @p0, [updated_at] = @p1
+OUTPUT 1
+WHERE [id] = @p2;
+2026-02-09 22:49:59.748 -05:00 [INF] Executed DbCommand (133ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (Size = 45), @p4='?' (DbType = Boolean), @p5='?' (Size = 255), @p6='?' (DbType = DateTime2), @p7='?' (Size = 4000), @p8='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='60']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [refresh_tokens] ([id], [created_at], [expires_at], [ip_address], [is_revoked], [token], [updated_at], [user_agent], [user_id])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2026-02-09 22:50:00.020 -05:00 [INF] Executed DbCommand (148ms) [Parameters=[@p10='?' (DbType = Guid), @p0='?' (DbType = DateTime2), @p1='?' (Size = 8), @p2='?' (Size = 255), @p3='?' (Size = 100), @p4='?' (DbType = Boolean), @p5='?' (Size = 255), @p6='?' (Size = 20), @p7='?' (Size = 4000), @p8='?' (Size = 20), @p9='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='60']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [users] SET [created_at] = @p0, [dni] = @p1, [email] = @p2, [full_name] = @p3, [is_verifired] = @p4, [password_hash] = @p5, [phone_number] = @p6, [profile_picture_url] = @p7, [status] = @p8, [updated_at] = @p9
+OUTPUT 1
+WHERE [id] = @p10;
+2026-02-09 22:50:00.108 -05:00 [INF] HTTP POST /api/Auth/login responded 200 in 5428.1551 ms
+2026-02-09 22:51:18.481 -05:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json responded 404 in 0.0502 ms
+2026-02-09 22:51:36.751 -05:00 [WRN] JWT Challenge: null - null
+2026-02-09 22:52:04.086 -05:00 [INF] HTTP GET /.well-known/appspecific/com.chrome.devtools.json responded 404 in 0.0128 ms
+2026-02-09 22:52:14.550 -05:00 [INF] Token JWT validado para usuario: unknown
+2026-02-09 22:52:14.604 -05:00 [INF] HTTP GET /api/Auth/me responded 200 in 38.1620 ms
+2026-02-09 22:54:56.574 -05:00 [INF] Token JWT validado para usuario: unknown
+2026-02-09 22:54:56.847 -05:00 [INF] Executed DbCommand (133ms) [Parameters=[@__token_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='60']
+SELECT TOP(1) [r].[id], [r].[created_at], [r].[expires_at], [r].[ip_address], [r].[is_revoked], [r].[token], [r].[updated_at], [r].[user_agent], [r].[user_id], [u].[id], [u].[created_at], [u].[dni], [u].[email], [u].[full_name], [u].[is_verifired], [u].[password_hash], [u].[phone_number], [u].[profile_picture_url], [u].[status], [u].[updated_at]
+FROM [refresh_tokens] AS [r]
+INNER JOIN [users] AS [u] ON [r].[user_id] = [u].[id]
+WHERE [r].[token] = @__token_0
+2026-02-09 22:54:56.858 -05:00 [WRN] Refresh token inválido
+System.UnauthorizedAccessException: Refresh token inválido
+   at Armala.Armala.Auth.Application.CommandHandlers.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Moises\OneDrive\OneDrive - Universidad Peruana de Ciencias\Desktop\Armala\Backend\Armala\Armala.Auth\Application\CommandHandlers\RefreshTokenCommandHandler.cs:line 31
+   at Armala.Auth.Interfaces.Controllers.AuthController.RefreshToken(RefreshTokenRequestDto request) in C:\Users\Moises\OneDrive\OneDrive - Universidad Peruana de Ciencias\Desktop\Armala\Backend\Armala\Armala.Auth\Interfaces\Controllers\AuthController.cs:line 100
+2026-02-09 22:54:56.901 -05:00 [INF] HTTP POST /api/Auth/refresh responded 401 in 319.8054 ms
+2026-02-09 22:55:25.019 -05:00 [INF] Token JWT validado para usuario: unknown
+2026-02-09 22:55:25.225 -05:00 [INF] Executed DbCommand (126ms) [Parameters=[@__token_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='60']
+SELECT TOP(1) [r].[id], [r].[created_at], [r].[expires_at], [r].[ip_address], [r].[is_revoked], [r].[token], [r].[updated_at], [r].[user_agent], [r].[user_id], [u].[id], [u].[created_at], [u].[dni], [u].[email], [u].[full_name], [u].[is_verifired], [u].[password_hash], [u].[phone_number], [u].[profile_picture_url], [u].[status], [u].[updated_at]
+FROM [refresh_tokens] AS [r]
+INNER JOIN [users] AS [u] ON [r].[user_id] = [u].[id]
+WHERE [r].[token] = @__token_0
+2026-02-09 22:55:25.233 -05:00 [WRN] Refresh token inválido
+System.UnauthorizedAccessException: Refresh token inválido
+   at Armala.Armala.Auth.Application.CommandHandlers.RefreshTokenCommandHandler.Handle(RefreshTokenCommand request, CancellationToken cancellationToken) in C:\Users\Moises\OneDrive\OneDrive - Universidad Peruana de Ciencias\Desktop\Armala\Backend\Armala\Armala.Auth\Application\CommandHandlers\RefreshTokenCommandHandler.cs:line 31
+   at Armala.Auth.Interfaces.Controllers.AuthController.RefreshToken(RefreshTokenRequestDto request) in C:\Users\Moises\OneDrive\OneDrive - Universidad Peruana de Ciencias\Desktop\Armala\Backend\Armala\Armala.Auth\Interfaces\Controllers\AuthController.cs:line 100
+2026-02-09 22:55:25.239 -05:00 [INF] HTTP POST /api/Auth/refresh responded 401 in 215.0524 ms
+2026-02-09 22:56:29.104 -05:00 [INF] Token JWT validado para usuario: unknown
+2026-02-09 22:56:29.245 -05:00 [INF] Executed DbCommand (131ms) [Parameters=[@__token_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='60']
+SELECT TOP(1) [r].[id], [r].[created_at], [r].[expires_at], [r].[ip_address], [r].[is_revoked], [r].[token], [r].[updated_at], [r].[user_agent], [r].[user_id], [u].[id], [u].[created_at], [u].[dni], [u].[email], [u].[full_name], [u].[is_verifired], [u].[password_hash], [u].[phone_number], [u].[profile_picture_url], [u].[status], [u].[updated_at]
+FROM [refresh_tokens] AS [r]
+INNER JOIN [users] AS [u] ON [r].[user_id] = [u].[id]
+WHERE [r].[token] = @__token_0
+2026-02-09 22:56:29.410 -05:00 [INF] Executed DbCommand (130ms) [Parameters=[@__id_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='60']
+SELECT TOP(1) [u].[id], [u].[created_at], [u].[dni], [u].[email], [u].[full_name], [u].[is_verifired], [u].[password_hash], [u].[phone_number], [u].[profile_picture_url], [u].[status], [u].[updated_at]
+FROM [users] AS [u]
+WHERE [u].[id] = @__id_0
+2026-02-09 22:56:29.723 -05:00 [INF] Executed DbCommand (133ms) [Parameters=[@p8='?' (DbType = Guid), @p0='?' (DbType = DateTime2), @p1='?' (DbType = DateTime2), @p2='?' (Size = 45), @p3='?' (DbType = Boolean), @p4='?' (Size = 255), @p5='?' (DbType = DateTime2), @p6='?' (Size = 4000), @p7='?' (DbType = Guid), @p19='?' (DbType = Guid), @p9='?' (DbType = DateTime2), @p10='?' (Size = 8), @p11='?' (Size = 255), @p12='?' (Size = 100), @p13='?' (DbType = Boolean), @p14='?' (Size = 255), @p15='?' (Size = 20), @p16='?' (Size = 4000), @p17='?' (Size = 20), @p18='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='60']
+SET NOCOUNT ON;
+UPDATE [refresh_tokens] SET [created_at] = @p0, [expires_at] = @p1, [ip_address] = @p2, [is_revoked] = @p3, [token] = @p4, [updated_at] = @p5, [user_agent] = @p6, [user_id] = @p7
+OUTPUT 1
+WHERE [id] = @p8;
+UPDATE [users] SET [created_at] = @p9, [dni] = @p10, [email] = @p11, [full_name] = @p12, [is_verifired] = @p13, [password_hash] = @p14, [phone_number] = @p15, [profile_picture_url] = @p16, [status] = @p17, [updated_at] = @p18
+OUTPUT 1
+WHERE [id] = @p19;
+2026-02-09 22:56:30.049 -05:00 [INF] Executed DbCommand (131ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (Size = 45), @p4='?' (DbType = Boolean), @p5='?' (Size = 255), @p6='?' (DbType = DateTime2), @p7='?' (Size = 4000), @p8='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='60']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [refresh_tokens] ([id], [created_at], [expires_at], [ip_address], [is_revoked], [token], [updated_at], [user_agent], [user_id])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2026-02-09 22:56:30.071 -05:00 [INF] HTTP POST /api/Auth/refresh responded 200 in 963.0563 ms
