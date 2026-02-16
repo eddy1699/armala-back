@@ -241,19 +241,21 @@ public class ExceptionHandlingMiddleware
                 statusCode = HttpStatusCode.InternalServerError;
                 errorMessage = "Error al guardar los cambios en la base de datos";
 
-                // En desarrollo, incluir más detalles
-                if (_env.IsDevelopment())
+                // TEMPORALMENTE: Siempre incluir detalles para debugging
+                details = new
                 {
-                    details = new
+                    innerException = dbUpdateEx.InnerException?.Message,
+                    fullStackTrace = dbUpdateEx.StackTrace,
+                    entities = dbUpdateEx.Entries.Select(e => new
                     {
-                        innerException = dbUpdateEx.InnerException?.Message,
-                        entities = dbUpdateEx.Entries.Select(e => new
-                        {
-                            entityType = e.Entity.GetType().Name,
-                            state = e.State.ToString()
-                        })
-                    };
-                }
+                        entityType = e.Entity.GetType().Name,
+                        state = e.State.ToString(),
+                        properties = e.Properties.ToDictionary(
+                            p => p.Metadata.Name,
+                            p => p.CurrentValue?.ToString() ?? "null"
+                        )
+                    })
+                };
             }
         }
         else
@@ -268,14 +270,17 @@ public class ExceptionHandlingMiddleware
                 _ => (HttpStatusCode.InternalServerError, "Ha ocurrido un error interno en el servidor")
             };
 
-            // En desarrollo, agregar detalles adicionales
-            if (_env.IsDevelopment() && statusCode == HttpStatusCode.InternalServerError)
+            // TEMPORALMENTE: Siempre incluir detalles para debugging
+            // TODO: Cambiar a _env.IsDevelopment() en producción
+            if (statusCode == HttpStatusCode.InternalServerError)
             {
                 details = new
                 {
                     exceptionType = exception.GetType().Name,
                     message = exception.Message,
-                    stackTrace = exception.StackTrace
+                    stackTrace = exception.StackTrace,
+                    innerException = exception.InnerException?.Message,
+                    source = exception.Source
                 };
             }
         }
@@ -316,15 +321,14 @@ public class ExceptionHandlingMiddleware
                 statusCode = HttpStatusCode.Conflict;
                 errorMessage = ExtractConstraintMessage(sqlEx.Message);
 
-                if (_env.IsDevelopment())
+                // TEMPORALMENTE: Siempre incluir detalles para debugging
+                details = new
                 {
-                    details = new
-                    {
-                        sqlErrorNumber = sqlEx.Number,
-                        constraintViolation = true,
-                        fullMessage = sqlEx.Message
-                    };
-                }
+                    sqlErrorNumber = sqlEx.Number,
+                    constraintViolation = true,
+                    fullMessage = sqlEx.Message,
+                    stackTrace = sqlEx.StackTrace
+                };
                 break;
 
             // Violación de FOREIGN KEY
@@ -332,15 +336,14 @@ public class ExceptionHandlingMiddleware
                 statusCode = HttpStatusCode.BadRequest;
                 errorMessage = "No se puede realizar la operación debido a restricciones de integridad referencial";
 
-                if (_env.IsDevelopment())
+                // TEMPORALMENTE: Siempre incluir detalles para debugging
+                details = new
                 {
-                    details = new
-                    {
-                        sqlErrorNumber = sqlEx.Number,
-                        foreignKeyViolation = true,
-                        fullMessage = sqlEx.Message
-                    };
-                }
+                    sqlErrorNumber = sqlEx.Number,
+                    foreignKeyViolation = true,
+                    fullMessage = sqlEx.Message,
+                    stackTrace = sqlEx.StackTrace
+                };
                 break;
 
             // Timeout
@@ -366,18 +369,17 @@ public class ExceptionHandlingMiddleware
                 statusCode = HttpStatusCode.InternalServerError;
                 errorMessage = "Error al guardar los datos en la base de datos";
 
-                if (_env.IsDevelopment())
+                // TEMPORALMENTE: Siempre incluir detalles para debugging
+                details = new
                 {
-                    details = new
-                    {
-                        sqlErrorNumber = sqlEx.Number,
-                        sqlState = sqlEx.State,
-                        sqlClass = sqlEx.Class,
-                        message = sqlEx.Message,
-                        procedure = sqlEx.Procedure,
-                        lineNumber = sqlEx.LineNumber
-                    };
-                }
+                    sqlErrorNumber = sqlEx.Number,
+                    sqlState = sqlEx.State,
+                    sqlClass = sqlEx.Class,
+                    message = sqlEx.Message,
+                    procedure = sqlEx.Procedure,
+                    lineNumber = sqlEx.LineNumber,
+                    stackTrace = sqlEx.StackTrace
+                };
                 break;
         }
 
