@@ -1,0 +1,114 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\PBO\\armala-back\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{44A4581E-B1F3-7BFE-293F-85A98C702958}|Armala\\Armala.csproj|c:\\pbo\\armala-back\\armala\\armala.auth\\interfaces\\middleware\\exceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44A4581E-B1F3-7BFE-293F-85A98C702958}|Armala\\Armala.csproj|solutionrelative:armala\\armala.auth\\interfaces\\middleware\\exceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44A4581E-B1F3-7BFE-293F-85A98C702958}|Armala\\Armala.csproj|c:\\pbo\\armala-back\\armala\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44A4581E-B1F3-7BFE-293F-85A98C702958}|Armala\\Armala.csproj|solutionrelative:armala\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44A4581E-B1F3-7BFE-293F-85A98C702958}|Armala\\Armala.csproj|c:\\pbo\\armala-back\\armala\\armala.auth\\application\\commandhandlers\\logincommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44A4581E-B1F3-7BFE-293F-85A98C702958}|Armala\\Armala.csproj|solutionrelative:armala\\armala.auth\\application\\commandhandlers\\logincommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44A4581E-B1F3-7BFE-293F-85A98C702958}|Armala\\Armala.csproj|c:\\pbo\\armala-back\\armala\\armala.auth\\application\\commands\\logincommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44A4581E-B1F3-7BFE-293F-85A98C702958}|Armala\\Armala.csproj|solutionrelative:armala\\armala.auth\\application\\commands\\logincommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\PBO\\armala-back\\Armala\\Program.cs",
+              "RelativeDocumentMoniker": "Armala\\Program.cs",
+              "ToolTip": "C:\\PBO\\armala-back\\Armala\\Program.cs",
+              "RelativeToolTip": "Armala\\Program.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-16T20:04:39.187Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ExceptionHandlingMiddleware.cs",
+              "DocumentMoniker": "C:\\PBO\\armala-back\\Armala\\Armala.Auth\\Interfaces\\Middleware\\ExceptionHandlingMiddleware.cs",
+              "RelativeDocumentMoniker": "Armala\\Armala.Auth\\Interfaces\\Middleware\\ExceptionHandlingMiddleware.cs",
+              "ToolTip": "C:\\PBO\\armala-back\\Armala\\Armala.Auth\\Interfaces\\Middleware\\ExceptionHandlingMiddleware.cs",
+              "RelativeToolTip": "Armala\\Armala.Auth\\Interfaces\\Middleware\\ExceptionHandlingMiddleware.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-16T19:55:49.759Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LoginCommandHandler.cs",
+              "DocumentMoniker": "C:\\PBO\\armala-back\\Armala\\Armala.Auth\\Application\\CommandHandlers\\LoginCommandHandler.cs",
+              "RelativeDocumentMoniker": "Armala\\Armala.Auth\\Application\\CommandHandlers\\LoginCommandHandler.cs",
+              "ToolTip": "C:\\PBO\\armala-back\\Armala\\Armala.Auth\\Application\\CommandHandlers\\LoginCommandHandler.cs",
+              "RelativeToolTip": "Armala\\Armala.Auth\\Application\\CommandHandlers\\LoginCommandHandler.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-16T19:49:59.199Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoginCommand.cs",
+              "DocumentMoniker": "C:\\PBO\\armala-back\\Armala\\Armala.Auth\\Application\\Commands\\LoginCommand.cs",
+              "RelativeDocumentMoniker": "Armala\\Armala.Auth\\Application\\Commands\\LoginCommand.cs",
+              "ToolTip": "C:\\PBO\\armala-back\\Armala\\Armala.Auth\\Application\\Commands\\LoginCommand.cs",
+              "RelativeToolTip": "Armala\\Armala.Auth\\Application\\Commands\\LoginCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-16T19:49:53.969Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

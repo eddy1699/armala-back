@@ -1,0 +1,41 @@
+2026-02-16 15:04:44.605 -05:00 [INF] Iniciando Armala API...
+2026-02-16 15:04:45.388 -05:00 [INF] Now listening on: https://localhost:7050
+2026-02-16 15:04:45.398 -05:00 [INF] Now listening on: http://localhost:5069
+2026-02-16 15:04:45.608 -05:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-02-16 15:04:45.617 -05:00 [INF] Hosting environment: Development
+2026-02-16 15:04:45.624 -05:00 [INF] Content root path: C:\PBO\armala-back\Armala
+2026-02-16 15:05:13.673 -05:00 [INF] Executed DbCommand (220ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='60']
+SELECT TOP(1) [u].[id], [u].[created_at], [u].[dni], [u].[email], [u].[full_name], [u].[is_verifired], [u].[password_hash], [u].[phone_number], [u].[profile_picture_url], [u].[status], [u].[updated_at]
+FROM [users] AS [u]
+WHERE [u].[email] = @__email_0
+2026-02-16 15:05:14.343 -05:00 [INF] Executed DbCommand (124ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='60']
+SELECT [r].[id], [r].[created_at], [r].[expires_at], [r].[ip_address], [r].[is_revoked], [r].[token], [r].[updated_at], [r].[user_agent], [r].[user_id]
+FROM [refresh_tokens] AS [r]
+WHERE [r].[user_id] = @__userId_0 AND [r].[is_revoked] = CAST(0 AS bit)
+2026-02-16 15:05:14.651 -05:00 [INF] Executed DbCommand (153ms) [Parameters=[@p2='?' (DbType = Guid), @p0='?' (DbType = Boolean), @p1='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='60']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [refresh_tokens] SET [is_revoked] = @p0, [updated_at] = @p1
+OUTPUT 1
+WHERE [id] = @p2;
+2026-02-16 15:05:14.874 -05:00 [INF] Executed DbCommand (128ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (Size = 45), @p4='?' (DbType = Boolean), @p5='?' (Size = 255), @p6='?' (DbType = DateTime2), @p7='?' (Size = 4000), @p8='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='60']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [refresh_tokens] ([id], [created_at], [expires_at], [ip_address], [is_revoked], [token], [updated_at], [user_agent], [user_id])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8);
+2026-02-16 15:05:15.071 -05:00 [INF] Executed DbCommand (130ms) [Parameters=[@p10='?' (DbType = Guid), @p0='?' (DbType = DateTime2), @p1='?' (Size = 8), @p2='?' (Size = 255), @p3='?' (Size = 100), @p4='?' (DbType = Boolean), @p5='?' (Size = 255), @p6='?' (Size = 20), @p7='?' (Size = 4000), @p8='?' (Size = 20), @p9='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='60']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [users] SET [created_at] = @p0, [dni] = @p1, [email] = @p2, [full_name] = @p3, [is_verifired] = @p4, [password_hash] = @p5, [phone_number] = @p6, [profile_picture_url] = @p7, [status] = @p8, [updated_at] = @p9
+OUTPUT 1
+WHERE [id] = @p10;
+2026-02-16 15:05:15.123 -05:00 [INF] HTTP POST /api/Auth/login responded 200 in 4383.9367 ms
+2026-02-16 15:05:21.629 -05:00 [INF] Executed DbCommand (150ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='60']
+SELECT TOP(1) [u].[id], [u].[created_at], [u].[dni], [u].[email], [u].[full_name], [u].[is_verifired], [u].[password_hash], [u].[phone_number], [u].[profile_picture_url], [u].[status], [u].[updated_at]
+FROM [users] AS [u]
+WHERE [u].[email] = @__email_0
+2026-02-16 15:05:22.189 -05:00 [WRN] Intento de login fallido para: ed@cc.com
+System.UnauthorizedAccessException: Credenciales inválidas
+   at Armala.Auth.Application.CommandHandlers.LoginCommandHandler.Handle(LoginCommand request, CancellationToken cancellationToken) in C:\PBO\armala-back\Armala\Armala.Auth\Application\CommandHandlers\LoginCommandHandler.cs:line 48
+   at Armala.Auth.Interfaces.Controllers.AuthController.Login(LoginRequestDto request) in C:\PBO\armala-back\Armala\Armala.Auth\Interfaces\Controllers\AuthController.cs:line 74
+2026-02-16 15:05:22.214 -05:00 [INF] HTTP POST /api/Auth/login responded 401 in 758.2999 ms
