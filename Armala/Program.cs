@@ -35,7 +35,8 @@ builder.Services.AddCors(options =>
                 "http://localhost:3000",
                 "http://localhost:5173",
                 "https://armala.com",
-                "https://www.armala.com"
+                "https://www.armala.com",
+                "https://armala-api-c8h7hvczchc4h8d2.scm.azurewebsites.net"
             )
             .AllowAnyMethod()
             .AllowAnyHeader()
