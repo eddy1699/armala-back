@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Armala")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea12ad42b11dff60347aaa9cf40503af62f01ee3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ee982b9fa692a67167a243d7ecae5c6e69d5d139")]
 [assembly: System.Reflection.AssemblyProductAttribute("Armala")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Armala")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
