@@ -181,7 +181,7 @@ var app = builder.Build();
 app.UseMiddleware<Armala.Auth.Interfaces.Middleware.ExceptionHandlingMiddleware>();
 
 // Swagger (solo en desarrollo y staging)
-if (app.Environment.IsDevelopment() || app.Environment.IsStaging())
+if (app.Environment.IsDevelopment() || app.Environment.IsStaging() || app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI(options =>
