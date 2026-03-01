@@ -30,6 +30,8 @@ public partial class ArmalaDbContext : DbContext
 
     public virtual DbSet<UserFinancialProfile> UserFinancialProfiles { get; set; }
 
+    public virtual DbSet<Otp> Otps { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Match>(entity =>
@@ -139,6 +141,18 @@ public partial class ArmalaDbContext : DbContext
             entity.Property(e => e.IsPrimary).HasDefaultValue(true);
 
             entity.HasOne(d => d.User).WithMany(p => p.UserFinancialProfiles).HasConstraintName("FK__user_fina__user___00200768");
+        });
+
+        modelBuilder.Entity<Otp>(entity =>
+        {
+            entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
+            entity.Property(e => e.IsUsed).HasDefaultValue(false);
+            entity.Property(e => e.Attempts).HasDefaultValue(0);
+            entity.Property(e => e.CreatedAt).HasDefaultValueSql("(getdate())");
+
+            entity.HasOne(d => d.User).WithMany()
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK__otps__user_id");
         });
 
         OnModelCreatingPartial(modelBuilder);

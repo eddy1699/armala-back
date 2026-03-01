@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Armala")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f35889d3b9836d8964dcffbffce37baf01dd6aad")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6d9f0a91e5bf675dfd7fb1aa3f79d1003ab71d5a")]
 [assembly: System.Reflection.AssemblyProductAttribute("Armala")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Armala")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -5,6 +5,7 @@ using Armala.Auth.Domain.Repositories;
 using Armala.Auth.Infrastructure.Persistence;
 using Armala.Auth.Infrastructure.Persistence.Repositories;
 using Armala.Auth.Infrastructure.Security;
+using Armala.Auth.Infrastructure.Email;
 
 namespace Armala.Auth.Infrastructure.Extensions;
 
@@ -20,10 +21,14 @@ public static class ServiceCollectionExtensions
         // Repositories
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IRefreshTokenRepository, RefreshTokenRepository>();
+        services.AddScoped<IOtpRepository, OtpRepository>();
 
         // Security Services
         services.AddSingleton<IPasswordHasher, PasswordHasher>();
         services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
+
+        // Email Service
+        services.AddScoped<IEmailService, SmtpEmailService>();
 
         return services;
     }

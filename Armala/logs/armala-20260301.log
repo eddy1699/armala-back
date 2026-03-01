@@ -1,0 +1,388 @@
+[2026-03-01 12:21:48.156 -05:00 INF] Iniciando Armala API...
+[2026-03-01 12:21:48.253 -05:00 INF] Now listening on: http:/2026-03-01 12:21[2026-03-01 12:21:48.255 -05:00 INF] Application started. Pre2026-03-01 12:21:48.255 [2026-03-01 12:21:48.255 -05:00 INF] Hosting environment: Dev2026-03-0[2026-03-01 12:21:48.255 -05:00 INF] Content root path: /User2026-03-01 12:21:48.255 -05:00 [INF] Content root path: /Users/edgar[2026-03-01 12:21:51.202 -05:00 WRN] Failed to determine the 2026-03-01 12:21:51.202 -[2026-03-01 12:21:51.249 -05:00 INF] HTTP GET /health respond2026-03-01 12:21:51.2[2026-03-01 12:22:31.999 -05:00 INF] Executed DbCommand (183m2026-03-01 12:22:31.999 -05:00 [INF] Executed DbCommand (183ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='60']
+SELECT TOP(1) [u].[id], [u].[created_at], [u].[dni], [u].[email], [u].[full_name], [u].[is_verifired], [u].[password_hash], [u].[phone_number], [u].[profile_picture_url], [u].[status], [u].[up[2026-03-01 12:22:32.212 -05:00 INF] Executed DbCommand (168m2026-03-01 12:22:32.212 -05:00 [INF] Executed DbCommand (168ms) [Parameters=[@__userId_0='?' (DbType = Guid), @__purpose_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='60']
+SELECT TOP(1) [o].[id], [o].[attempts], [o].[code], [o].[created_at], [o].[expires_at], [o].[is_used], [o].[purpose], [o].[user_id]
+FROM [otps] AS [o]
+WHERE [o].[user_id] = @__userId_0 AND [o].[purpose] = @__purpose_1 AND [o].[is_used] = CAST(0 AS bit) AND [o[2026-03-01 12:22:32.367 -05:00 INF] Executed DbCommand (147m2026-03-01 12:22:32.367 -05:00 [INF] Executed DbCommand (147ms) [Parameters=[@__userId_0='?' (DbType = Guid), @__purpose_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='60']
+SELECT [o].[id], [o].[attempts], [o].[code], [o].[created_at], [o].[expires_at], [o].[is_used], [o].[purpose], [o].[user_id]
+FROM [otps] AS [o]
+WHERE [o].[user_id] = @__userId_0 AND [o][2026-03-01 12:22:32.657 -05:00 INF] Executed DbCommand (181m2026-03-01 12:22:32.657 -05:00 [INF] Executed DbCommand (181ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 10), @p2='?' (DbType = DateTime2), @p3='?' (DbType = DateTime2), @p4='?' (Size = 50), @p5='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='60']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [otps] ([id], [code], [created_at], [expires_at], [purpose], [user_id])
+OUTPUT INSERTED.[attempts[2026-03-01 12:22:36.930 -05:00 INF] OTP email enviado a edga2026-03-01 12:22:36.[2026-03-01 12:22:36.944 -05:00 INF] HTTP POST /api/Otp/send 2026-03-01 12:22:36.944 -05:00[2026-03-01 12:23:20.462 -05:00 INF] Executed DbCommand (148m2026-03-01 12:23:20.462 -05:00 [INF] Executed DbCommand (148ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='60']
+SELECT TOP(1) [u].[id], [u].[created_at], [u].[dni], [u].[email], [u].[full_name], [u].[is_verifired], [u].[password_hash], [u].[phone_number], [u].[profile_picture_url], [u].[status], [u].[up[2026-03-01 12:23:20.475 -05:00 WRN] Error al enviar OTP para2026-03-01 12:23:20.475 -05:00 [WRN] Error al enviar OTP para: caralahuamanz.01@gmail.com
+System.InvalidOperationException: No existe una cuenta con ese correo electrónico
+   at Armala.Auth.Application.CommandHandlers.SendOtpCommandHandler.Handle(SendOtpCommand request, CancellationToken cancellationToken) in /Users/edgardosamame/Desktop/Projects/ARMALA-PROYECTO/armala-back/Armala/Armala.Auth/Application/CommandHandlers/SendOtpCommandHandler.cs:line 31
+   at Armala.Auth.Interfaces.Controllers.OtpController.SendOtp(SendOtpRequestDto request) in /Users/edgardosamame/Desktop/Projects/ARMALA-PROYECTO/armala-back/Armala[2026-03-01 12:23:20.489 -05:00 INF] HTTP POST /api/Otp/send 2026-03-01 12:23:20.489 -05:0[2026-03-01 12:23:23.720 -05:00 INF] Executed DbCommand (173m2026-03-01 12:23:23.720 -05:00 [INF] Executed DbCommand (173ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='60']
+SELECT TOP(1) [u].[id], [u].[created_at], [u].[dni], [u].[email], [u].[full_name], [u].[is_verifired], [u].[password_hash], [u].[phone_number], [u].[profile_picture_url], [u].[status], [u].[up[2026-03-01 12:23:23.722 -05:00 WRN] Error al enviar OTP para2026-03-01 12:23:23.722 -05:00 [WRN] Error al enviar OTP para: caralahuamanz.01@gmail.com
+System.InvalidOperationException: No existe una cuenta con ese correo electrónico
+   at Armala.Auth.Application.CommandHandlers.SendOtpCommandHandler.Handle(SendOtpCommand request, CancellationToken cancellationToken) in /Users/edgardosamame/Desktop/Projects/ARMALA-PROYECTO/armala-back/Armala/Armala.Auth/Application/CommandHandlers/SendOtpCommandHandler.cs:line 31
+   at Armala.Auth.Interfaces.Controllers.OtpController.SendOtp(SendOtpRequestDto request) in /Users/edgardosamame/Desktop/Projects/ARMALA-PROYECTO/armala-back/Armala[2026-03-01 12:23:23.725 -05:00 INF] HTTP POST /api/Otp/send 2026-03-01 12:23:23.725 -05:0[2026-03-01 12:24:05.419 -05:00 INF] Executed DbCommand (190m2026-03-01 12:24:05.419 -05:00 [INF] Executed DbCommand (190ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='60']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [users] AS [u]
+        WHERE [u].[email] =[2026-03-01 12:24:05.592 -05:00 INF] Executed DbCommand (164m2026-03-01 12:24:05.592 -05:00 [INF] Executed DbCommand (164ms) [Parameters=[@__phoneNumber_0='?' (Size = 20)], CommandType='"Text"', CommandTimeout='60']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [users] AS [u]
+        WHERE [u].[phone_number] = @__ph[2026-03-01 12:24:05.768 -05:00 INF] Executed DbCommand (168m2026-03-01 12:24:05.768 -05:00 [INF] Executed DbCommand (168ms) [Parameters=[@__dni_0='?' (Size = 8)], CommandType='"Text"', CommandTimeout='60']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [users] AS [u]
+        WHERE [u].[dni][2026-03-01 12:24:06.386 -05:00 INF] Executed DbCommand (182m2026-03-01 12:24:06.386 -05:00 [INF] Executed DbCommand (182ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (Size = 8), @p3='?' (Size = 255), @p4='?' (Size = 100), @p5='?' (DbType = Boolean), @p6='?' (Size = 255), @p7='?' (Size = 20), @p8='?' (Size = 4000), @p9='?' (Size = 20), @p10='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='60']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [users] ([id], [created_at], [dni], [email], [full_name], [is_verifired], [password_hash], [phone_number], [profile_picture_url], [status], [updated_at])
+VALU[2026-03-01 12:24:06.596 -05:00 INF] Executed DbCommand (150m2026-03-01 12:24:06.596 -05:00 [INF] Executed DbCommand (150ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (Size = 45), @p4='?' (DbType = Boolean), @p5='?' (Size = 255), @p6='?' (DbType = DateTime2), @p7='?' (Size = 4000), @p8='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='60']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [refresh_tokens] ([id], [created_at], [expires_at], [ip_address], [is_revoked], [token], [updated_at], [user_agent], [use[2026-03-01 12:24:06.643 -05:00 INF] HTTP POST /api/Auth/regi2026-03-01 12:24:06.643 -05:00 [INF[2026-03-01 12:24:11.593 -05:00 INF] Executed DbCommand (149m2026-03-01 12:24:11.593 -05:00 [INF] Executed DbCommand (149ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='60']
+SELECT TOP(1) [u].[id], [u].[created_at], [u].[dni], [u].[email], [u].[full_name], [u].[is_verifired], [u].[password_hash], [u].[phone_number], [u].[profile_picture_url], [u].[status], [u].[up[2026-03-01 12:24:11.776 -05:00 INF] Executed DbCommand (179m2026-03-01 12:24:11.776 -05:00 [INF] Executed DbCommand (179ms) [Parameters=[@__userId_0='?' (DbType = Guid), @__purpose_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='60']
+SELECT TOP(1) [o].[id], [o].[attempts], [o].[code], [o].[created_at], [o].[expires_at], [o].[is_used], [o].[purpose], [o].[user_id]
+FROM [otps] AS [o]
+WHERE [o].[user_id] = @__userId_0 AND [o].[purpose] = @__purpose_1 AND [o].[is_used] = CAST(0 AS bit) AND [o[2026-03-01 12:24:11.940 -05:00 INF] Executed DbCommand (161m2026-03-01 12:24:11.940 -05:00 [INF] Executed DbCommand (161ms) [Parameters=[@__userId_0='?' (DbType = Guid), @__purpose_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='60']
+SELECT [o].[id], [o].[attempts], [o].[code], [o].[created_at], [o].[expires_at], [o].[is_used], [o].[purpose], [o].[user_id]
+FROM [otps] AS [o]
+WHERE [o].[user_id] = @__userId_0 AND [o][2026-03-01 12:24:12.092 -05:00 INF] Executed DbCommand (149m2026-03-01 12:24:12.092 -05:00 [INF] Executed DbCommand (149ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 10), @p2='?' (DbType = DateTime2), @p3='?' (DbType = DateTime2), @p4='?' (Size = 50), @p5='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='60']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [otps] ([id], [code], [created_at], [expires_at], [purpose], [user_id])
+OUTPUT INSERTED.[attempts[2026-03-01 12:24:16.407 -05:00 INF] OTP email enviado a cara2026-03-01 12:24:16.407[2026-03-01 12:24:16.409 -05:00 INF] HTTP POST /api/Otp/send 2026-03-01 12:24:16.409 -05:00[2026-03-01 12:24:41.785 -05:00 INF] Executed DbCommand (156m2026-03-01 12:24:41.785 -05:00 [INF] Executed DbCommand (156ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='60']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [users] AS [u]
+        WHERE [u].[email] =[2026-03-01 12:24:41.938 -05:00 INF] Executed DbCommand (149m2026-03-01 12:24:41.938 -05:00 [INF] Executed DbCommand (149ms) [Parameters=[@__phoneNumber_0='?' (Size = 20)], CommandType='"Text"', CommandTimeout='60']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [users] AS [u]
+        WHERE [u].[phone_number] = @__ph[2026-03-01 12:24:42.085 -05:00 INF] Executed DbCommand (145m2026-03-01 12:24:42.085 -05:00 [INF] Executed DbCommand (145ms) [Parameters=[@__dni_0='?' (Size = 8)], CommandType='"Text"', CommandTimeout='60']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [users] AS [u]
+        WHERE [u].[dni][2026-03-01 12:24:42.088 -05:00 WRN] Error en registro: El DN2026-03-01 12:24:42.088 -05:00 [WRN] Error en registro: El DNI ya está registrado
+System.InvalidOperationException: El DNI ya está registrado
+   at Armala.Armala.Auth.Application.CommandHandlers.RegisterUserCommandHandler.Handle(RegisterUserCommand request, CancellationToken cancellationToken) in /Users/edgardosamame/Desktop/Projects/ARMALA-PROYECTO/armala-back/Armala/Armala.Auth/Application/CommandHandlers/RegisterUserCommandHandler.cs:line 45
+   at Armala.Auth.Interfaces.Controllers.AuthController.Register(RegisterRequestDto request) in /Users/edgardosamame/Desktop/Projects/ARMALA-PROYECTO/armala-back/Armala/[2026-03-01 12:24:42.091 -05:00 INF] HTTP POST /api/Auth/regi2026-03-01 12:24:42.091 -05:00 [IN[2026-03-01 12:24:47.103 -05:00 INF] Executed DbCommand (158m2026-03-01 12:24:47.103 -05:00 [INF] Executed DbCommand (158ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='60']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [users] AS [u]
+        WHERE [u].[email] =[2026-03-01 12:24:47.250 -05:00 INF] Executed DbCommand (145m2026-03-01 12:24:47.250 -05:00 [INF] Executed DbCommand (145ms) [Parameters=[@__phoneNumber_0='?' (Size = 20)], CommandType='"Text"', CommandTimeout='60']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [users] AS [u]
+        WHERE [u].[phone_number] = @__ph[2026-03-01 12:24:47.396 -05:00 INF] Executed DbCommand (145m2026-03-01 12:24:47.396 -05:00 [INF] Executed DbCommand (145ms) [Parameters=[@__dni_0='?' (Size = 8)], CommandType='"Text"', CommandTimeout='60']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [users] AS [u]
+        WHERE [u].[dni][2026-03-01 12:24:47.876 -05:00 ERR] Failed executing DbComma2026-03-01 12:24:47.876 -05:00 [ERR] Failed executing DbCommand (155ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (Size = 8), @p3='?' (Size = 255), @p4='?' (Size = 100), @p5='?' (DbType = Boolean), @p6='?' (Size = 255), @p7='?' (Size = 20), @p8='?' (Size = 4000), @p9='?' (Size = 20), @p10='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='60']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [users] ([id], [created_at], [dni], [email], [full_name], [is_verifired], [password_hash], [phone_number], [profile_picture_url], [status], [updated_at])
+VALU[2026-03-01 12:24:47.895 -05:00 ERR] An exception occurred in2026-03-01 12:24:47.895 -05:00 [ERR] An exception occurred in the database while saving changes for context type 'Armala.Auth.Infrastructure.Persistence.Context.ArmalaDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Violation of UNIQUE KEY constraint 'UQ__users__A1936A6B7AA09FD8'. Cannot insert duplicate key in object 'dbo.users'. The duplicate key value is (+51999123999).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a4202974-f387-4951-b76d-073637e45062
+Error Number:2627,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Violation of UNIQUE KEY constraint 'UQ__users__A1936A6B7AA09FD8'. Cannot insert duplicate key in object 'dbo.users'. The duplicate key value is (+51999123999).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a4202974-f387-4951-b76d-073637e45062
+Error Number:2627,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acc[2026-03-01 12:24:47.902 -05:00 ERR] HTTP POST /api/Auth/regi2026-03-01 12:24:47.902 -05:00 [ERR] HTTP POST /api/Auth/register responded 500 in 961.1645 ms
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Violation of UNIQUE KEY constraint 'UQ__users__A1936A6B7AA09FD8'. Cannot insert duplicate key in object 'dbo.users'. The duplicate key value is (+51999123999).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a4202974-f387-4951-b76d-073637e45062
+Error Number:2627,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Armala.Auth.Infrastructure.Persistence.Repositories.UserRepository.AddAsync(User user) in /Users/edgardosamame/Desktop/Projects/ARMALA-PROYECTO/armala-back/Armala/Armala.Auth/Infrastructure/Persistence/Repositories/UserRepository.cs:line 66
+   at Armala.Armala.Auth.Application.CommandHandlers.RegisterUserCommandHandler.Handle(RegisterUserCommand request, CancellationToken cancellationToken) in /Users/edgardosamame/Desktop/Projects/ARMALA-PROYECTO/armala-back/Armala/Armala.Auth/Application/CommandHandlers/RegisterUserCommandHandler.cs:line 67
+   at Armala.Auth.Interfaces.Controllers.AuthController.Register(RegisterRequestDto request) in /Users/edgardosamame/Desktop/Projects/ARMALA-PROYECTO/armala-back/Armala/Armala.Auth/Interfaces/Controllers/AuthController.cs:line 42
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Serilog.AspNetC[2026-03-01 12:24:47.924 -05:00 ERR] === ERROR DETALLADO ===
+2026-03-01 12:24:47.924 -05:00 [ERR] === ERROR DETALLADO ===
+Timestamp: 2026-03-01 17:24:47.912
+Path: /api/Auth/register
+Method: POST
+Query: 
+User: Anonymous
+Headers:
+  Accept: text/plain
+  Connection: keep-alive
+  Host: localhost:5069
+  User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36
+  Accept-Encoding: gzip, deflate, br, zstd
+  Accept-Language: es-ES,es;q=0.9
+  Content-Type: application/json
+  Origin: http://localhost:5069
+  Referer: http://localhost:5069/swagger/index.html
+  Content-Length: 139
+  sec-ch-ua-platform: "macOS"
+  sec-ch-ua: "Not:A-Brand";v="99", "Google Chrome";v="145", "Chromium";v="145"
+  sec-ch-ua-mobile: ?0
+  Sec-Fetch-Site: same-origin
+  Sec-Fetch-Mode: cors
+  Sec-Fetch-Dest: empty
+Body: 
+
+Exception Type: Microsoft.EntityFrameworkCore.DbUpdateException
+Message: An error occurred while saving the entity changes. See the inner exception for details.
+StackTrace:    at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Armala.Auth.Infrastructure.Persistence.Repositories.UserRepository.AddAsync(User user) in /Users/edgardosamame/Desktop/Projects/ARMALA-PROYECTO/armala-back/Armala/Armala.Auth/Infrastructure/Persistence/Repositories/UserRepository.cs:line 66
+   at Armala.Armala.Auth.Application.CommandHandlers.RegisterUserCommandHandler.Handle(RegisterUserCommand request, CancellationToken cancellationToken) in /Users/edgardosamame/Desktop/Projects/ARMALA-PROYECTO/armala-back/Armala/Armala.Auth/Application/CommandHandlers/RegisterUserCommandHandler.cs:line 67
+   at Armala.Auth.Interfaces.Controllers.AuthController.Register(RegisterRequestDto request) in /Users/edgardosamame/Desktop/Projects/ARMALA-PROYECTO/armala-back/Armala/Armala.Auth/Interfaces/Controllers/AuthController.cs:line 42
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Program.<>c.<<<Main>$>b__0_6>d.MoveNext() in /Users/edgardosamame/Desktop/Projects/ARMALA-PROYECTO/armala-back/Armala/Program.cs:line 213
+--- End of stack trace from previous location ---
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Armala.Auth.Interfaces.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in /Users/edgardosamame/Desktop/Projects/ARMALA-PROYECTO/armala-back/Armala/Armala.Auth/Interfaces/Middleware/ExceptionHandlingMiddleware.cs:line 125
+
+=== SQL EXCEPTION DETAILS ===
+SQL Error Number: 2627
+SQL Error State: 1
+SQL Error Class: 14
+SQL Server: tcp:armala-srv.database.windows.net,1433
+Procedure: 
+Line Number: 3
+
+SQL Error #2627:
+  Message: Violation of UNIQUE KEY constraint 'UQ__users__A1936A6B7AA09FD8'. Cannot insert duplicate key in object 'dbo.users'. The duplicate key value is (+51999123999).
+  Procedure: 
+  Line: 3
+
+SQL Error #3621:
+  Message: The statement has been terminated.
+  Procedure: 
+  Line: 3
+
+=== AFFECTED ENTITIES ===
+Entity Type: User
+State: Added
+  Id: 8ba976ea-1449-4c0a-bbd9-8990d3b54314
+  CreatedAt: 1/3/2026 5:24:47 p.m.
+  Dni: 77788288
+  Email: carlahuamanz.01@gmail.com
+  FullName: Carla
+  IsVerifired: False
+  PasswordHash: $2a$12$5Fpa9HBA20jgFIvdh0TIEOQXp3ws94yfywAEHu8nq.tTe8xdZAvo2
+  PhoneNumber: +51999123999
+  ProfilePictureUrl: 
+  Status: NEW_USER
+  UpdatedAt: 1/3/2026 5:24:47 p.m.
+
+=== INNER EXCEPTION 1 ===
+Type: Microsoft.Data.SqlClient.SqlException
+Message: Violation of UNIQUE KEY constraint 'UQ__users__A1936A6B7AA09FD8'. Cannot insert duplicate key in object 'dbo.users'. The duplicate key value is (+51999123999).
+The statement has been terminated.
+StackTrace:    at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+=== END ERROR DETAILS ===
+
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Violation of UNIQUE KEY constraint 'UQ__users__A1936A6B7AA09FD8'. Cannot insert duplicate key in object 'dbo.users'. The duplicate key value is (+51999123999).
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a4202974-f387-4951-b76d-073637e45062
+Error Number:2627,State:1,Class:14
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.<>c__DisplayClass30_0`2.<<ExecuteAsync>b__0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteImplementationAsync[TState,TResult](Func`4 operation, Func`4 verifySucceeded, TState state, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.ExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Armala.Auth.Infrastructure.Persistence.Repositories.UserRepository.AddAsync(User user) in /Users/edgardosamame/Desktop/Projects/ARMALA-PROYECTO/armala-back/Armala/Armala.Auth/Infrastructure/Persistence/Repositories/UserRepository.cs:line 66
+   at Armala.Armala.Auth.Application.CommandHandlers.RegisterUserCommandHandler.Handle(RegisterUserCommand request, CancellationToken cancellationToken) in /Users/edgardosamame/Desktop/Projects/ARMALA-PROYECTO/armala-back/Armala/Armala.Auth/Application/CommandHandlers/RegisterUserCommandHandler.cs:line 67
+   at Armala.Auth.Interfaces.Controllers.AuthController.Register(RegisterRequestDto request) in /Users/edgardosamame/Desktop/Projects/ARMALA-PROYECTO/armala-back/Armala/Armala.Auth/Interfaces/Controllers/AuthController.cs:line 42
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at AspNetCoreRateLimit.RateLimitMiddleware`1.Invoke(HttpContext context) in C:\Users\User\Documents\Github\AspNetCoreRateLimit\src\AspNetCoreRateLimit\Middleware\RateLimitMiddleware.cs:line 124
+   at Program.<>c.<<<Main>$>b__0_6>d.MoveNext() in /Users/edgardosamame/Desktop/Projects/ARMALA-PROYECTO/armala-back/Armala/Program.cs:line 213
+--- End of stack trace from previous location ---
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Armala.Auth.Interfaces.Middleware.ExceptionHandlingMiddleware.InvokeAsync(HttpContext context) in /Users/edgardosamame/Desktop/Projects/ARMALA-PROYECTO/armala-back/Armala/Armala.Auth/I[2026-03-01 12:24:58.718 -05:00 INF] Executed DbCommand (153m2026-03-01 12:24:58.718 -05:00 [INF] Executed DbCommand (153ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='60']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [users] AS [u]
+        WHERE [u].[email] =[2026-03-01 12:24:58.868 -05:00 INF] Executed DbCommand (146m2026-03-01 12:24:58.868 -05:00 [INF] Executed DbCommand (146ms) [Parameters=[@__phoneNumber_0='?' (Size = 20)], CommandType='"Text"', CommandTimeout='60']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [users] AS [u]
+        WHERE [u].[phone_number] = @__ph[2026-03-01 12:24:59.017 -05:00 INF] Executed DbCommand (145m2026-03-01 12:24:59.017 -05:00 [INF] Executed DbCommand (145ms) [Parameters=[@__dni_0='?' (Size = 8)], CommandType='"Text"', CommandTimeout='60']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [users] AS [u]
+        WHERE [u].[dni][2026-03-01 12:24:59.489 -05:00 INF] Executed DbCommand (150m2026-03-01 12:24:59.489 -05:00 [INF] Executed DbCommand (150ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (Size = 8), @p3='?' (Size = 255), @p4='?' (Size = 100), @p5='?' (DbType = Boolean), @p6='?' (Size = 255), @p7='?' (Size = 20), @p8='?' (Size = 4000), @p9='?' (Size = 20), @p10='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='60']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [users] ([id], [created_at], [dni], [email], [full_name], [is_verifired], [password_hash], [phone_number], [profile_picture_url], [status], [updated_at])
+VALU[2026-03-01 12:24:59.641 -05:00 INF] Executed DbCommand (149m2026-03-01 12:24:59.641 -05:00 [INF] Executed DbCommand (149ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (Size = 45), @p4='?' (DbType = Boolean), @p5='?' (Size = 255), @p6='?' (DbType = DateTime2), @p7='?' (Size = 4000), @p8='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='60']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [refresh_tokens] ([id], [created_at], [expires_at], [ip_address], [is_revoked], [token], [updated_at], [user_agent], [use[2026-03-01 12:24:59.646 -05:00 INF] HTTP POST /api/Auth/regi2026-03-01 12:24:59.646 -05:00 [INF[2026-03-01 12:25:04.556 -05:00 INF] Executed DbCommand (155m2026-03-01 12:25:04.556 -05:00 [INF] Executed DbCommand (155ms) [Parameters=[@__email_0='?' (Size = 255)], CommandType='"Text"', CommandTimeout='60']
+SELECT TOP(1) [u].[id], [u].[created_at], [u].[dni], [u].[email], [u].[full_name], [u].[is_verifired], [u].[password_hash], [u].[phone_number], [u].[profile_picture_url], [u].[status], [u].[up[2026-03-01 12:25:04.707 -05:00 INF] Executed DbCommand (147m2026-03-01 12:25:04.707 -05:00 [INF] Executed DbCommand (147ms) [Parameters=[@__userId_0='?' (DbType = Guid), @__purpose_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='60']
+SELECT TOP(1) [o].[id], [o].[attempts], [o].[code], [o].[created_at], [o].[expires_at], [o].[is_used], [o].[purpose], [o].[user_id]
+FROM [otps] AS [o]
+WHERE [o].[user_id] = @__userId_0 AND [o].[purpose] = @__purpose_1 AND [o].[is_used] = CAST(0 AS bit) AND [o[2026-03-01 12:25:04.852 -05:00 INF] Executed DbCommand (144m2026-03-01 12:25:04.852 -05:00 [INF] Executed DbCommand (144ms) [Parameters=[@__userId_0='?' (DbType = Guid), @__purpose_1='?' (Size = 50)], CommandType='"Text"', CommandTimeout='60']
+SELECT [o].[id], [o].[attempts], [o].[code], [o].[created_at], [o].[expires_at], [o].[is_used], [o].[purpose], [o].[user_id]
+FROM [otps] AS [o]
+WHERE [o].[user_id] = @__userId_0 AND [o][2026-03-01 12:25:05.011 -05:00 INF] Executed DbCommand (149m2026-03-01 12:25:05.011 -05:00 [INF] Executed DbCommand (149ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (Size = 10), @p2='?' (DbType = DateTime2), @p3='?' (DbType = DateTime2), @p4='?' (Size = 50), @p5='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='60']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [otps] ([id], [code], [created_at], [expires_at], [purpose], [user_id])
+OUTPUT INSERTED.[attempts[2026-03-01 12:25:09.351 -05:00 INF] OTP email enviado a carl2026-03-01 12:25:09.35[2026-03-01 12:25:09.358 -05:00 INF] HTTP POST /api/Otp/send 2026-03-01 12:25:09.358 -05:00 [INF] HTTP POST /api/Otp/send responded 200 in 4959.0711 ms

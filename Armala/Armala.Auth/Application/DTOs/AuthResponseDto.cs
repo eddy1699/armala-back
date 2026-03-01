@@ -40,3 +40,14 @@ public record RegisterRequestDto
     public string Dni { get; init; } = string.Empty;
     public string Password { get; init; } = string.Empty;
 }
+
+public record SendOtpRequestDto
+{
+    public string Email { get; init; } = string.Empty;
+}
+
+public record VerifyOtpRequestDto
+{
+    public string Email { get; init; } = string.Empty;
+    public string Code { get; init; } = string.Empty;
+}
